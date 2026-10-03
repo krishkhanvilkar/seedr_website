@@ -11,7 +11,6 @@ const FOOTER_COLUMNS = [
     heading: "Company",
     links: [
       { label: "Manifesto", href: "#protocol" },
-      { label: "Cohort 01", href: "#inner-circle" },
       { label: "Contact", href: "mailto:support.seedr@gmail.com" },
     ],
   },
@@ -20,7 +19,6 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Privacy", href: "https://aboard-kettledrum-d25.notion.site/Seedr-Privacy-Telemetry-Policy-3e6aa988885880cd99f1fe6605c8ebb8?source=copy_link" },
       { label: "Terms", href: "https://aboard-kettledrum-d25.notion.site/Seedr-Beta-Participation-Agreement-Terms-of-Service-3e6aa98888588079b32bc767b4741259?source=copy_link" },
-      { label: "Encryption", href: "#" },
     ],
   },
 ]
@@ -63,7 +61,7 @@ export function SiteFooter() {
           </a>
           <div className="flex flex-col gap-1 text-xs text-zinc-600 md:items-end">
             <p className="font-mono uppercase tracking-[0.2em]">Invite only</p>
-            <p>© 2026 Seedr. Code in production is absolute.</p>
+            <p>© 2026 Seedr. Proof in production is absolute.</p>
           </div>
         </div>
       </div>

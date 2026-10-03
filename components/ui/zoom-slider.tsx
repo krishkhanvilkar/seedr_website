@@ -40,7 +40,7 @@ interface ZoomSliderProps {
 export default function ZoomSlider({
   id,
   title = 'The Architecture',
-  subheading = 'Scroll to inspect the protocol',
+  subheading = 'Scroll to inspect the app preview',
   images = VAULT_IMAGES,
 }: ZoomSliderProps) {
   const sectionRef = useRef<HTMLElement | null>(null);

@@ -29,7 +29,7 @@ export function ManifestoSection() {
         >
           Resumes are theoretical.{" "}
           <span className="bg-gradient-to-br from-zinc-100 via-zinc-400 to-zinc-700 bg-clip-text text-transparent">
-            Code is absolute.
+            Proof is absolute.
           </span>
         </h2>
         <p className="max-w-xl text-pretty text-lg leading-relaxed text-zinc-400">

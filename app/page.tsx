@@ -14,8 +14,8 @@ export default function Page() {
       <Hero
         eyebrow="🟢 Private Beta Active"
         eyebrowHref="#ecosystem"
-        title="Execution favors the proven."
-        subtitle="A closed, Proof-of-Work network for elite technical operators. No pitches. No noise. Only what you have shipped."
+        title="The network to build the next big thing."
+        subtitle="A closed, highly curated network for like-minded, ambitious builders and investors. No pitches. No noise. Just people serious about what they are building."
         ctaLabel="Request Access"
         ctaHref="#request-access"
       />
@@ -24,7 +24,7 @@ export default function Page() {
       <ZoomSlider
         id="architecture"
         title="The Architecture"
-        subheading="Scroll to inspect the protocol"
+        subheading="Scroll to inspect the app preview"
       />
       <section aria-label="Platinum access marker" className="flex justify-center px-6 py-28 md:py-40">
         <PlatinumCoin />
