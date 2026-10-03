@@ -14,7 +14,7 @@ export function SiteNav() {
           size="sm"
           className="rounded-full border border-white/20 bg-white px-5 font-semibold tracking-tight text-black shadow-[0_0_15px_rgba(255,255,255,0.12)] transition-shadow duration-500 hover:bg-zinc-100 hover:shadow-[0_0_28px_rgba(255,255,255,0.35),0_0_60px_rgba(251,146,60,0.18)]"
         >
-          <a href="#inner-circle">Request Access</a>
+          <a href="#request-access">Request Access</a>
         </Button>
       </nav>
     </header>

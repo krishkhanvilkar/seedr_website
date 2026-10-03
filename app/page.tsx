@@ -18,14 +18,14 @@ export default function Page() {
         title="Execution favors the proven."
         subtitle="A closed, Proof-of-Work network for elite technical operators. No pitches. No noise. Only what you have shipped."
         ctaLabel="Request Access"
-        ctaHref="#ecosystem"
+        ctaHref="#request-access"
       />
       <EcosystemSection />
       <ManifestoSection />
       <ZoomSlider
         id="architecture"
         title="The Architecture"
-        subheading="Drag or scroll to inspect the protocol"
+        subheading="Scroll to inspect the protocol"
       />
       <InnerCircleSection />
       <SignalDataSection />

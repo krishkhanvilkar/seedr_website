@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import { RequestAccessProvider } from '@/components/request-access-dialog'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function RootLayout({
       className={`dark bg-black ${GeistSans.variable} ${GeistMono.variable}`}
     >
       <body className="antialiased">
-        {children}
+        <RequestAccessProvider>{children}</RequestAccessProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
