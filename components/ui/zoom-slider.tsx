@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import { SliderHud, type HudVariant } from '@/components/slider-hud';
 
 gsap.registerPlugin(SplitText);
 
@@ -11,19 +12,24 @@ export interface ZoomSliderItem {
   src: string;
   title: string;
   desc: string;
+  hud?: HudVariant;
 }
 
 const unsplash = (id: string) =>
   `https://images.unsplash.com/photo-${id}?q=80&w=2000&auto=format&fit=crop`;
 
 export const DEFAULT_SLIDER_DATA: ZoomSliderItem[] = [
-  { number: '01', src: unsplash('1618005182384-a83a8bd57fbe'), title: 'VERIFIED', desc: 'Proof of work is the only currency.' },
-  { number: '02', src: unsplash('1550684848-fac1c5b4e853'), title: 'NETWORK', desc: 'High-signal operators only.' },
-  { number: '03', src: unsplash('1635776062127-d379bfcba9f8'), title: 'CAPITAL', desc: 'Liquidity meets execution.' },
-  { number: '04', src: unsplash('1506377247377-2a5b3b417ebb'), title: 'DEPLOY', desc: 'Production is absolute.' },
-  { number: '05', src: unsplash('1614850523459-c2f4c699c52e'), title: 'VAULT', desc: 'Encrypted, private, institutional.' },
-  { number: '06', src: unsplash('1558494949-ef010cbdcc31'), title: 'SYNTHESIS', desc: 'Multi-agent architecture.' },
+  { number: '01', src: unsplash('1544005313-94ddf0286df2'), title: 'SIGNAL', desc: 'Proof of work is the only currency.', hud: 'signal' },
+  { number: '02', src: unsplash('1578301978018-3005759f48f7'), title: 'ENCLAVE', desc: 'Private by construction.', hud: 'enclave' },
+  { number: '03', src: '/images/greek-bust-shadow.png', title: 'NODES', desc: 'High-signal operators only.', hud: 'nodes' },
+  { number: '04', src: unsplash('1534447677768-be436bb09401'), title: 'VELOCITY', desc: 'Production is absolute.', hud: 'velocity' },
+  { number: '05', src: unsplash('1604871000636-074fa5117945'), title: 'CAPITAL', desc: 'Liquidity meets execution.', hud: 'capital' },
 ];
+
+// The HUD only materialises once a card has grown close to its full width,
+// so edge cards stay pure imagery and the centre card reads as a live dashboard.
+const HUD_REVEAL_START = 0.7;
+const HUD_REVEAL_END = 0.95;
 
 const SCROLL_PER_PX = 1.0;
 const LERP_FACTOR = 0.08;
@@ -72,6 +78,7 @@ export function ZoomSliderComp({
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const imageWrapRefs = useRef<(HTMLDivElement | null)[]>([]);
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const hudRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const [viewportWidth, setViewportWidth] = useState(1440);
   const [viewportHeight, setViewportHeight] = useState(900);
@@ -176,6 +183,18 @@ export function ZoomSliderComp({
 
         imageWrap.style.width = `${visualWidth}px`;
         imageWrap.style.height = `${cardHeight}px`;
+
+        const hud = hudRefs.current[cardIndex];
+
+        if (!hud) continue;
+
+        const reveal = Math.min(
+          1,
+          Math.max(0, (scale - HUD_REVEAL_START) / (HUD_REVEAL_END - HUD_REVEAL_START))
+        );
+        hud.style.opacity = `${reveal}`;
+        hud.style.transform = `translateY(${(1 - reveal) * 24}px)`;
+        hud.style.visibility = reveal > 0.01 ? 'visible' : 'hidden';
       }
     },
     [cardHeightMax, cardHeightMin, cardStep, cardWidthMax, images.length, resolvedEaseScrollPercentage]
@@ -487,6 +506,23 @@ export function ZoomSliderComp({
                   willChange: 'auto',
                 }}
               />
+              {item.hud ? (
+                <>
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"
+                  />
+                  <div
+                    ref={(element) => {
+                      hudRefs.current[index] = element;
+                    }}
+                    className="pointer-events-none absolute bottom-6 left-6 w-[min(22rem,calc(100%-3rem))] select-none max-sm:bottom-4 max-sm:left-4 max-sm:w-[calc(100%-2rem)] max-sm:scale-[0.82] max-sm:origin-bottom-left"
+                    style={{ opacity: 0, visibility: 'hidden', willChange: 'opacity, transform' }}
+                  >
+                    <SliderHud variant={item.hud} />
+                  </div>
+                </>
+              ) : null}
             </div>
           </div>
         ))}

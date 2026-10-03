@@ -2,7 +2,7 @@ import { Hero } from "@/components/ui/hero-1"
 import { SiteNav } from "@/components/site-nav"
 import { EcosystemSection } from "@/components/ecosystem-section"
 import { ManifestoSection } from "@/components/manifesto-section"
-import { PinnedGallery } from "@/components/pinned-gallery"
+import ZoomSlider from "@/components/ui/zoom-slider"
 import { SignalDataSection } from "@/components/signal-data-section"
 import { InnerCircleSection } from "@/components/inner-circle-section"
 import { SiteFooter } from "@/components/site-footer"
@@ -15,14 +15,18 @@ export default function Page() {
       <Hero
         eyebrow="🟢 Private Beta Active"
         eyebrowHref="#ecosystem"
-        title="Execution favors the verified."
+        title="Execution favors the proven."
         subtitle="A closed, Proof-of-Work network for elite technical operators. No pitches. No noise. Only what you have shipped."
         ctaLabel="Request Access"
         ctaHref="#ecosystem"
       />
       <EcosystemSection />
       <ManifestoSection />
-      <PinnedGallery id="architecture" />
+      <ZoomSlider
+        id="architecture"
+        title="The Architecture"
+        subheading="Drag or scroll to inspect the protocol"
+      />
       <InnerCircleSection />
       <SignalDataSection />
       <SiteFooter />
