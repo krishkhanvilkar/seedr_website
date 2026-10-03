@@ -260,12 +260,6 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5" aria-hidden="true" />
               </button>
 
-              <p className="mt-5 text-center text-xs text-zinc-600">
-                Already have an account?{" "}
-                <a href={`mailto:${INBOX}?subject=Seedr%20Sign%20In`} className="font-medium text-zinc-300 hover:text-white">
-                  Sign in.
-                </a>
-              </p>
             </motion.form>
           )}
         </AnimatePresence>

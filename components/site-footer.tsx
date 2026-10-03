@@ -62,6 +62,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-1 text-xs text-zinc-600 md:items-end">
             <p className="font-mono uppercase tracking-[0.2em]">Invite only</p>
             <p>© 2026 Seedr. Proof in production is absolute.</p>
+            <a href="mailto:support.seedr@gmail.com" className="transition-colors hover:text-zinc-300">support.seedr@gmail.com</a>
           </div>
         </div>
       </div>

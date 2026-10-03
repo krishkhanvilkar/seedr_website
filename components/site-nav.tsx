@@ -12,7 +12,7 @@ export function SiteNav() {
         <Button
           asChild
           size="sm"
-          className="rounded-full border border-white/20 bg-white px-5 font-semibold tracking-tight text-black shadow-[0_0_15px_rgba(255,255,255,0.12)] transition-shadow duration-500 hover:bg-zinc-100 hover:shadow-[0_0_28px_rgba(255,255,255,0.35),0_0_60px_rgba(251,146,60,0.18)]"
+          className="rounded-full border border-white/20 bg-white/[0.08] px-5 font-medium tracking-tight text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_0_18px_rgba(255,255,255,0.06)] backdrop-blur-md transition-all duration-500 hover:border-white/35 hover:bg-white/[0.14] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_0_28px_rgba(255,255,255,0.12)]"
         >
           <a href="#request-access">Request Access</a>
         </Button>
