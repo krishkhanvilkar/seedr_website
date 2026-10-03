@@ -5,26 +5,13 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Seedr — The Verified Room for Relentless Operators',
+  title: 'Seedr — Execution Favors the Verified',
   description:
-    'Seedr is the closed network where elite technical talent, product visionaries, and capital converge. Private beta now active.',
+    'Seedr is a closed, Proof-of-Work network where elite technical operators, product visionaries, and capital converge. Private beta now active.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/favicon19.png',
+    apple: '/favicon19.png',
   },
 }
 

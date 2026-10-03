@@ -239,3 +239,39 @@
     opacity: 1;
   }
 }
+
+@keyframes coin-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes coin-shine {
+  0%,
+  60% {
+    transform: translateX(-140%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(140%) skewX(-20deg);
+  }
+}
+
+.coin-float {
+  animation: coin-float 6s ease-in-out infinite;
+}
+
+.coin-shine {
+  background: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  animation: coin-shine 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coin-float,
+  .coin-shine {
+    animation: none;
+  }
+}
