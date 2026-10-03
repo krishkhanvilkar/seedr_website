@@ -12,14 +12,14 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Manifesto", href: "#protocol" },
       { label: "Cohort 01", href: "#inner-circle" },
-      { label: "Contact", href: "mailto:access@seedr.network" },
+      { label: "Contact", href: "mailto:support.seedr@gmail.com" },
     ],
   },
   {
     heading: "Legal",
     links: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
+      { label: "Privacy", href: "https://aboard-kettledrum-d25.notion.site/Seedr-Privacy-Telemetry-Policy-3e6aa988885880cd99f1fe6605c8ebb8?source=copy_link" },
+      { label: "Terms", href: "https://aboard-kettledrum-d25.notion.site/Seedr-Beta-Participation-Agreement-Terms-of-Service-3e6aa98888588079b32bc767b4741259?source=copy_link" },
       { label: "Encryption", href: "#" },
     ],
   },

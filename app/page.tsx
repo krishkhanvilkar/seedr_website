@@ -3,10 +3,9 @@ import { SiteNav } from "@/components/site-nav"
 import { EcosystemSection } from "@/components/ecosystem-section"
 import { ManifestoSection } from "@/components/manifesto-section"
 import ZoomSlider from "@/components/ui/zoom-slider"
-import { SignalDataSection } from "@/components/signal-data-section"
-import { InnerCircleSection } from "@/components/inner-circle-section"
 import { SiteFooter } from "@/components/site-footer"
 import { AlexanderDock } from "@/components/alexander-dock"
+import { PlatinumCoin } from "@/components/platinum-coin"
 
 export default function Page() {
   return (
@@ -27,8 +26,9 @@ export default function Page() {
         title="The Architecture"
         subheading="Scroll to inspect the protocol"
       />
-      <InnerCircleSection />
-      <SignalDataSection />
+      <section aria-label="Platinum access marker" className="flex justify-center px-6 py-28 md:py-40">
+        <PlatinumCoin />
+      </section>
       <SiteFooter />
       <AlexanderDock />
     </main>

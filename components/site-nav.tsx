@@ -7,7 +7,7 @@ export function SiteNav() {
         <a href="#hero" className="flex items-center" aria-label="Seedr home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/favicon19.png" alt="Seedr Logo" className="h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(74,222,128,0.16)]" />
-          <span className="ml-3 text-[1.65rem] font-semibold leading-none tracking-[-0.08em] text-[#00c99a]">seedr</span>
+          <span className="ml-3 bg-gradient-to-b from-white via-zinc-200 to-zinc-500 bg-clip-text text-[1.65rem] font-semibold leading-none tracking-[-0.08em] text-transparent">seedr</span>
         </a>
         <Button
           asChild
