@@ -6,8 +6,8 @@ export function SiteNav() {
       <nav aria-label="Primary" className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-8">
         <a href="#hero" className="flex items-center" aria-label="Seedr home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/favicon19.png" alt="Seedr Logo" className="h-8 w-auto mix-blend-luminosity" />
-          <span className="ml-3 text-sm font-bold uppercase tracking-[0.2em] text-white">Seedr</span>
+          <img src="/favicon19.png" alt="Seedr Logo" className="h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(74,222,128,0.16)]" />
+          <span className="ml-3 text-[1.65rem] font-semibold leading-none tracking-[-0.08em] text-[#00c99a]">seedr</span>
         </a>
         <Button
           asChild
