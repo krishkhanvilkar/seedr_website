@@ -58,7 +58,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [proof, setProof] = useState("")
-  const [submitted, setSubmitted] = useState(false)
+  const [success, setSuccess] = useState(false)
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | null>(null)
 
@@ -100,7 +100,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
     formData.set("role", role)
     startTransition(async () => {
       const result = await submitRequestAccess(formData)
-      if (result.success === true) setSubmitted(true)
+      if (result.success === true) setSuccess(true)
       else setError(result.error ?? "Transmission failed. Please try again.")
     })
   }
@@ -149,7 +149,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
         </button>
 
         <AnimatePresence mode="wait" initial={false}>
-          {submitted ? (
+          {success === true ? (
             <motion.div
               key="done"
               initial={{ opacity: 0, y: 12 }}
