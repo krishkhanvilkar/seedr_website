@@ -206,7 +206,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 <Field label="Full name" id="access-name">
                   <input
                     id="access-name"
-                    name="fullName"
+                    name="name"
                     required
                     autoComplete="name"
                     maxLength={120}
@@ -233,7 +233,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 <Field label={role === "builder" ? "Proof of work (optional)" : "Fund or portfolio (optional)"} id="access-proof">
                   <input
                     id="access-proof"
-                    name="proofLink"
+                    name="proof"
                     type="url"
                     maxLength={300}
                     value={proof}
