@@ -43,7 +43,7 @@ export function ProtocolSection() {
           id="protocol-heading"
           className="mb-16 text-balance text-4xl font-medium tracking-tight text-zinc-100 md:text-5xl"
         >
-          The Collaborative Protocol.
+          The Collaborative Effort.
         </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           {protocolCards.map((card) => (
