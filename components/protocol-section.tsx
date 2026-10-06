@@ -1,5 +1,3 @@
-import { Component as GenerativeArt } from "@/components/ui/generative-art"
-
 const protocolCards = [
   {
     title: "01 / The High-Signal Network.",
@@ -11,18 +9,12 @@ const protocolCards = [
   },
 ]
 
-const edgeFadeMask = "linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)"
-
-function GenerativeBackdrop() {
+function MeshBackdrop() {
   return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-0"
-      style={{ maskImage: edgeFadeMask, WebkitMaskImage: edgeFadeMask }}
-    >
-      <div className="absolute right-0 top-1/2 h-[800px] w-[800px] -translate-y-1/2 overflow-hidden opacity-20 mix-blend-screen grayscale invert [&_.canvas-container:not(#container-history)]:hidden">
-        <GenerativeArt />
-      </div>
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:16px_16px] opacity-20" />
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-background to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
     </div>
   )
 }
@@ -32,10 +24,10 @@ export function ProtocolSection() {
     <section
       id="collaborative-protocol"
       aria-labelledby="protocol-heading"
-      className="relative isolate w-full overflow-hidden bg-transparent px-6 py-32"
+      className="relative isolate w-full overflow-hidden bg-black px-6 py-32"
     >
-      <GenerativeBackdrop />
-      <div className="relative z-10 mx-auto max-w-6xl">
+      <MeshBackdrop />
+      <div className="relative mx-auto max-w-6xl">
         <p className="mb-4 text-sm uppercase tracking-widest text-zinc-500">
           {"02 \u2014 THE PROTOCOL"}
         </p>
@@ -43,13 +35,13 @@ export function ProtocolSection() {
           id="protocol-heading"
           className="mb-16 text-balance text-4xl font-medium tracking-tight text-zinc-100 md:text-5xl"
         >
-          The Collaborative Effort.
+          The Collaborative Protocol.
         </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
           {protocolCards.map((card) => (
             <article
               key={card.title}
-              className="flex flex-col gap-4 rounded-none border border-zinc-900 bg-[#050505]/80 p-10 backdrop-blur-md transition-colors duration-500 hover:border-zinc-700"
+              className="flex flex-col gap-4 rounded-none border border-zinc-900 bg-[#050505] p-10 transition-colors duration-500 hover:border-zinc-700"
             >
               <h3 className="text-xl font-medium tracking-tight text-zinc-100">{card.title}</h3>
               <p className="text-pretty leading-relaxed text-zinc-400">{card.body}</p>
