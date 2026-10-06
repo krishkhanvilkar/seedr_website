@@ -14,7 +14,7 @@ export default function Page() {
         eyebrow="🟢 Private Beta Active"
         eyebrowHref="#ecosystem"
         title="The network to build the next big thing."
-        subtitle="A closed, highly curated network for like-minded, ambitious builders and investors. No pitches. No noise. Just people serious about what they are building."
+        subtitle="A Highly curated network for like-minded, ambitious builders and investors. No pitches. No noise. Just people serious about what they are building."
         ctaLabel="Request Access"
         ctaHref="#request-access"
       />
