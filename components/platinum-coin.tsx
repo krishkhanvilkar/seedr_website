@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { SeedrMark } from '@/components/seedr-mark'
+const SEEDR_LOGO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-10-06%20051058-bnvKuDPIBRiMPWAll9EdFqLkbq7xh3.png"
 
 export function PlatinumCoin() {
   return (
@@ -7,10 +7,13 @@ export function PlatinumCoin() {
       <div aria-hidden="true" className="absolute inset-0 -z-10 scale-[1.8] rounded-full bg-[radial-gradient(closest-side,rgba(255,255,255,0.14),transparent)] blur-2xl" />
       <div className="coin-float relative flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-zinc-300/50 bg-gradient-to-br from-gray-100 via-zinc-400 to-zinc-900 p-1 shadow-[inset_0_-4px_10px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.15)]">
         <div className="flex h-full w-full items-center justify-center rounded-full border border-white/40 bg-gradient-to-tl from-zinc-300 via-zinc-400 to-zinc-500 shadow-[inset_0_2px_6px_rgba(0,0,0,0.45),inset_0_-1px_2px_rgba(255,255,255,0.6)]">
-          <SeedrMark
-            className="h-16 w-16 text-zinc-900"
-            fill="#121212"
-            style={{ filter: "drop-shadow(0px -1px 1px rgba(0,0,0,0.8)) drop-shadow(0px 1px 1px rgba(255,255,255,0.2))" }}
+          <img
+            src={SEEDR_LOGO_URL}
+            alt="Seedr logo"
+            width={64}
+            height={64}
+            className="h-16 w-16 object-contain mix-blend-multiply"
+            style={{ filter: "contrast(1.15) brightness(0.38) drop-shadow(0px -1px 1px rgba(0,0,0,0.8)) drop-shadow(0px 1px 1px rgba(255,255,255,0.2))" }}
           />
         </div>
         <span aria-hidden="true" className="coin-shine pointer-events-none absolute inset-0 rounded-full" />

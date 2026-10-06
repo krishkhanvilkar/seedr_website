@@ -50,7 +50,7 @@ export function AlexanderDock() {
       className="alexander-signal pointer-events-none fixed z-50 select-none leading-none mix-blend-screen"
     >
       <motion.div
-        style={prefersReducedMotion ? { opacity } : { opacity, filter, x, y }}
+        style={{ opacity, filter, x, y }}
         className="will-change-[opacity,transform,filter]"
       >
         <Image
