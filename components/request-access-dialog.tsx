@@ -8,15 +8,16 @@ import {
   useId,
   useRef,
   useState,
+  useTransition,
   type FormEvent,
   type ReactNode,
 } from "react"
+import { submitRequestAccess } from "@/app/actions/request-access"
 import { AnimatePresence, motion } from "framer-motion"
 import { ArrowRight, Check, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const EASE = [0.16, 1, 0.3, 1] as const
-const INBOX = "access@seedr.network"
 export const REQUEST_ACCESS_HASH = "#request-access"
 
 type Role = "builder" | "investor"
@@ -58,6 +59,8 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState("")
   const [proof, setProof] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const [isPending, startTransition] = useTransition()
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const previousFocus = document.activeElement as HTMLElement | null
@@ -92,12 +95,14 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const subject = encodeURIComponent(`Seedr Access Request — ${role === "builder" ? "Builder" : "Investor"}`)
-    const body = encodeURIComponent(
-      `Name: ${name.trim()}\nEmail: ${email.trim()}\nTrack: ${role}\nProof of work: ${proof.trim() || "—"}`,
-    )
-    window.location.href = `mailto:${INBOX}?subject=${subject}&body=${body}`
-    setSubmitted(true)
+    setError(null)
+    const formData = new FormData(event.currentTarget)
+    formData.set("role", role)
+    startTransition(async () => {
+      const result = await submitRequestAccess(formData)
+      if (result.success) setSubmitted(true)
+      else setError(result.error ?? "Transmission failed. Please try again.")
+    })
   }
 
   return (
@@ -160,7 +165,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 Request received.
               </h2>
               <p id={descId} className="mt-3 max-w-xs text-sm leading-relaxed text-zinc-500">
-                {"Every application is reviewed by hand. If your work speaks, we'll be in touch."}
+                Transmission secured. We will review your proof of work.
               </p>
               <button
                 type="button"
@@ -214,6 +219,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 <Field label="Full name" id="access-name">
                   <input
                     id="access-name"
+                    name="name"
                     required
                     autoComplete="name"
                     maxLength={120}
@@ -226,6 +232,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 <Field label="Email" id="access-email">
                   <input
                     id="access-email"
+                    name="email"
                     type="email"
                     required
                     autoComplete="email"
@@ -239,6 +246,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 <Field label={role === "builder" ? "Proof of work (optional)" : "Fund or portfolio (optional)"} id="access-proof">
                   <input
                     id="access-proof"
+                    name="proof"
                     type="url"
                     maxLength={300}
                     value={proof}
@@ -252,12 +260,14 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
                 </Field>
               </div>
 
+              {error ? <p className="mt-4 text-center text-sm text-red-400" role="alert">{error}</p> : null}
               <button
                 type="submit"
-                className="group mt-8 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-semibold tracking-tight text-black shadow-[0_0_24px_rgba(255,255,255,0.15)] transition-shadow duration-500 hover:shadow-[0_0_36px_rgba(255,255,255,0.3)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                disabled={isPending}
+                className="group mt-8 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-semibold tracking-tight text-black shadow-[0_0_24px_rgba(255,255,255,0.15)] transition-all duration-500 hover:shadow-[0_0_36px_rgba(255,255,255,0.3)] disabled:cursor-wait disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Request access as {role === "builder" ? "Builder" : "Investor"}
-                <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5" aria-hidden="true" />
+                {isPending ? "Encrypting transmission..." : `Request access as ${role === "builder" ? "Builder" : "Investor"}`}
+                {!isPending ? <ArrowRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5" aria-hidden="true" /> : null}
               </button>
 
             </motion.form>
