@@ -2,6 +2,7 @@
 
 export type RequestAccessResult = {
   success: boolean
+  message?: string
   error?: string
 }
 
@@ -37,6 +38,6 @@ export async function submitRequestAccess(formData: FormData): Promise<RequestAc
     return { success: false, error: "Transmission failed. Please try again." }
   }
 
-  return { success: true }
+  return { success: true, message: "Transmission secured." }
 }
 

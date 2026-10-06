@@ -14,7 +14,7 @@ import {
 } from "react"
 import { submitRequestAccess } from "@/app/actions/request-access"
 import { AnimatePresence, motion } from "framer-motion"
-import { ArrowRight, Check, X } from "lucide-react"
+import { ArrowRight, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -100,7 +100,7 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
     formData.set("role", role)
     startTransition(async () => {
       const result = await submitRequestAccess(formData)
-      if (result.success) setSubmitted(true)
+      if (result.success === true) setSubmitted(true)
       else setError(result.error ?? "Transmission failed. Please try again.")
     })
   }
@@ -156,24 +156,11 @@ function AccessDialog({ onClose }: { onClose: () => void }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: EASE }}
-              className="relative flex flex-col items-center px-8 pt-16 pb-12 text-center"
+              className="relative flex min-h-64 items-center justify-center px-8 py-16 text-center"
             >
-              <span className="flex size-14 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] shadow-[0_0_30px_rgba(255,255,255,0.08)]">
-                <Check className="size-5 text-white" aria-hidden="true" />
-              </span>
-              <h2 id={titleId} className="mt-8 text-3xl font-semibold tracking-tighter text-white">
-                Request received.
-              </h2>
-              <p id={descId} className="mt-3 max-w-xs text-sm leading-relaxed text-zinc-500">
+              <p id={descId} className="max-w-xs text-sm leading-relaxed text-zinc-300">
                 Transmission secured. We will review your proof of work.
               </p>
-              <button
-                type="button"
-                onClick={onClose}
-                className="mt-10 h-12 w-full rounded-full border border-white/10 bg-white/[0.04] text-sm font-medium text-white transition-colors hover:bg-white/[0.08]"
-              >
-                Return to Seedr
-              </button>
             </motion.div>
           ) : (
             <motion.form
