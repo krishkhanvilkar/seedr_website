@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+const SEEDR_LOGO_URL = "/seedr-logo.png"
 
 export function PlatinumCoin() {
   return (
@@ -6,8 +7,14 @@ export function PlatinumCoin() {
       <div aria-hidden="true" className="absolute inset-0 -z-10 scale-[1.8] rounded-full bg-[radial-gradient(closest-side,rgba(255,255,255,0.14),transparent)] blur-2xl" />
       <div className="coin-float relative flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-zinc-300/50 bg-gradient-to-br from-gray-100 via-zinc-400 to-zinc-900 p-1 shadow-[inset_0_-4px_10px_rgba(0,0,0,0.6),0_0_40px_rgba(255,255,255,0.15)]">
         <div className="flex h-full w-full items-center justify-center rounded-full border border-white/40 bg-gradient-to-tl from-zinc-300 via-zinc-400 to-zinc-500 shadow-[inset_0_2px_6px_rgba(0,0,0,0.45),inset_0_-1px_2px_rgba(255,255,255,0.6)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/favicon19.png" alt="Seedr seal" className="h-16 w-16 object-contain drop-shadow-[0_1px_0_rgba(255,255,255,0.5)]" />
+          <img
+            src={SEEDR_LOGO_URL}
+            alt="Seedr logo"
+            width={64}
+            height={64}
+            className="h-14 w-14 object-contain opacity-75 mix-blend-screen"
+            style={{ filter: "grayscale(1) contrast(1.35) brightness(0.58) drop-shadow(0px -1px 1px rgba(0,0,0,0.72)) drop-shadow(0px 1px 1px rgba(255,255,255,0.32))" }}
+          />
         </div>
         <span aria-hidden="true" className="coin-shine pointer-events-none absolute inset-0 rounded-full" />
       </div>
