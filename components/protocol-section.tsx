@@ -9,13 +9,12 @@ const protocolCards = [
   },
 ]
 
-function AuroraBackdrop() {
+function MeshBackdrop() {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="aurora-blob-a absolute -left-[10%] top-[10%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,178,0.22),transparent_65%)] blur-3xl" />
-      <div className="aurora-blob-b absolute -right-[8%] top-[30%] h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(129,140,248,0.2),transparent_65%)] blur-3xl" />
-      <div className="aurora-blob-a absolute bottom-[-20%] left-[35%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle_at_center,rgba(192,132,252,0.12),transparent_65%)] blur-3xl" />
-      <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#0a0a0a_0%,transparent_18%,transparent_82%,#0a0a0a_100%)]" />
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:16px_16px] opacity-20" />
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-background to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent" />
     </div>
   )
 }
@@ -25,9 +24,9 @@ export function ProtocolSection() {
     <section
       id="collaborative-protocol"
       aria-labelledby="protocol-heading"
-      className="relative isolate w-full overflow-hidden px-6 py-32"
+      className="relative isolate w-full overflow-hidden bg-black px-6 py-32"
     >
-      <AuroraBackdrop />
+      <MeshBackdrop />
       <div className="relative mx-auto max-w-6xl">
         <p className="mb-4 text-sm uppercase tracking-widest text-zinc-500">
           {"02 \u2014 THE PROTOCOL"}
@@ -42,18 +41,10 @@ export function ProtocolSection() {
           {protocolCards.map((card) => (
             <article
               key={card.title}
-              className="group relative flex flex-col gap-5 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08),0_30px_60px_-30px_rgba(0,0,0,0.8)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] md:p-10"
+              className="flex flex-col gap-4 rounded-none border border-zinc-900 bg-[#050505] p-10 transition-colors duration-500 hover:border-zinc-700"
             >
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"
-              />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-24 -top-24 h-56 w-56 rounded-full bg-white/[0.06] blur-3xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-60"
-              />
-              <h3 className="relative text-xl font-medium tracking-tight text-zinc-100">{card.title}</h3>
-              <p className="relative text-pretty leading-relaxed text-zinc-400">{card.body}</p>
+              <h3 className="text-xl font-medium tracking-tight text-zinc-100">{card.title}</h3>
+              <p className="text-pretty leading-relaxed text-zinc-400">{card.body}</p>
             </article>
           ))}
         </div>

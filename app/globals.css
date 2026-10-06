@@ -276,20 +276,3 @@
   }
 }
 
-@keyframes aurora-drift-a {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
-  50% { transform: translate3d(8%, -6%, 0) scale(1.15) rotate(12deg); }
-}
-
-@keyframes aurora-drift-b {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1.1) rotate(0deg); }
-  50% { transform: translate3d(-10%, 8%, 0) scale(0.95) rotate(-10deg); }
-}
-
-.aurora-blob-a { animation: aurora-drift-a 22s ease-in-out infinite; }
-.aurora-blob-b { animation: aurora-drift-b 28s ease-in-out infinite; }
-
-@media (prefers-reduced-motion: reduce) {
-  .aurora-blob-a,
-  .aurora-blob-b { animation: none; }
-}
