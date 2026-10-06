@@ -1,7 +1,6 @@
 import { Hero } from "@/components/ui/hero-1"
 import { SiteNav } from "@/components/site-nav"
 import { EcosystemSection } from "@/components/ecosystem-section"
-import { ManifestoSection } from "@/components/manifesto-section"
 import ZoomSlider from "@/components/ui/zoom-slider"
 import { SiteFooter } from "@/components/site-footer"
 import { AlexanderDock } from "@/components/alexander-dock"
@@ -20,7 +19,6 @@ export default function Page() {
         ctaHref="#request-access"
       />
       <EcosystemSection />
-      <ManifestoSection />
       <ZoomSlider
         id="architecture"
         title="The Architecture"

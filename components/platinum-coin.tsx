@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-const SEEDR_LOGO_URL = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202026-10-06%20051058-bnvKuDPIBRiMPWAll9EdFqLkbq7xh3.png"
+const SEEDR_LOGO_URL = "/seedr-logo.png"
 
 export function PlatinumCoin() {
   return (
@@ -12,8 +12,8 @@ export function PlatinumCoin() {
             alt="Seedr logo"
             width={64}
             height={64}
-            className="h-16 w-16 object-contain mix-blend-multiply"
-            style={{ filter: "contrast(1.15) brightness(0.38) drop-shadow(0px -1px 1px rgba(0,0,0,0.8)) drop-shadow(0px 1px 1px rgba(255,255,255,0.2))" }}
+            className="h-14 w-14 object-contain opacity-75 mix-blend-screen"
+            style={{ filter: "grayscale(1) contrast(1.35) brightness(0.58) drop-shadow(0px -1px 1px rgba(0,0,0,0.72)) drop-shadow(0px 1px 1px rgba(255,255,255,0.32))" }}
           />
         </div>
         <span aria-hidden="true" className="coin-shine pointer-events-none absolute inset-0 rounded-full" />
